@@ -37,6 +37,23 @@ writer.playlist('another.m3u', {
   resolution: '640x480',
 });
 
+// Adds an iframe playlist as the next item preceeded by an EXT-X-I-FRAME-STREAM-INF tag.
+writer.iframePlaylist('iframe.m3u', {
+  bandwidth: 3000, // required
+  programId: 1,
+  codecs: ['avc1.4d001e'],
+});
+
+// EXT-X-MEDIA: Adds a media item for alternate renditions. Must be AUDIO or VIDEO.
+writer.media('AUDIO', {
+  'group-id': 'audio_low',
+  language: 'eng',
+  name: 'Audio',
+  autoselect: true,
+  default: true,
+  uri: 'audio.m3u',
+});
+
 // EXT-X-ENDLIST: Indicates that no more media files will be added to the m3u file.
 // (optional)
 writer.endlist();

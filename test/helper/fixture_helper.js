@@ -18,7 +18,7 @@ exports.compare = function(output, fixture) {
         line,
         'Error on line ' + (number + 1) + '\n\n' +
         'Expected: ' + line + '\n' +
-        'Got: ' + got
+        'Got:      ' + got
       );
     });
 };
